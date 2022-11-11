@@ -1,6 +1,7 @@
 import "./App.css";
 import { useState } from "react";
 import bakeryData from "./assets/bakery-data.json";
+import BakeryItem from "./components/BakeryItem"
 
 /* ####### DO NOT TOUCH -- this makes the image URLs work ####### */
 bakeryData.forEach((item) => {
@@ -45,11 +46,7 @@ function App() {
       <div style={{display: "flex", flexDirection: "row"}}>
       <div style={{display: "flex", flexDirection: "row", flexWrap: "wrap", width: "60%"}}>
       {bakeryData.map((item, index) => ( // TODO: map bakeryData to BakeryItem components
-      <div style={{display: "flex", flexDirection: "column", maxWidth: 300}}>
-      <img src={item.image} style={{width: "100%", height: "auto"}}/>
-      <p>{item.name}</p>
-      <button onClick={() => addToCart(index)}>Add To Cart</button>
-      </div>
+      <BakeryItem item={item}  index={index} addToCart={addToCart} />
       ))}
       </div>
 
